@@ -1,10 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <stack>
 using namespace std;
 
 vector<bool> arr(1000001, true);
-stack<int> s;
 
 int main() {
     ios::sync_with_stdio(false);
@@ -20,7 +18,6 @@ int main() {
 	//소수 
 	for(int i = 2; i * i <= n; i++) {
 		if(arr[i]) {
-			s.push(i);
 			
 			for(int j = i * i; j <= n; j += i) {
 				arr[j] = false;
