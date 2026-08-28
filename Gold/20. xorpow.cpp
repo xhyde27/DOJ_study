@@ -1,19 +1,13 @@
-#include <iostream>
-using namespace std;
-
-int t, p, q, r;
-
+#include <stdio.h>
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(NULL);
-	
-	cin >> t;
+	int t, p, q, r;
+	scanf("%d", &t);
 	
 	for(int i = 0; i < t; i++) {
-		cin >> p >> q >> r;
+		scanf("%d %d %d", &p, &q, &r);
 		q = q < r ? q : r;
-		cout << (p + q - 1) % 1000000007 << "\n";
+		printf("%d\n", (p + q - 1) % 1000000007);
 	}
-    
+	
 	return 0;
 }
