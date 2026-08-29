@@ -1,10 +1,10 @@
 //도저히 모르겠어서 해설참조함 
 #include <iostream>
-#include <set>
-
+#include <vector>
+//set으로 중복 없애는 것보다 vector로 중복 허용하는 것이 오히려 더 빠르다.
 using namespace std;
 int isFriend[200001], inRoom[200001];
-set<int> candidates;
+vector<int> candidates;
 
 int main() {
 	ios::sync_with_stdio(false);
@@ -22,7 +22,7 @@ int main() {
 			
 			if(isFriend[b] == 0) {
 				inRoom[b] = 1;
-				candidates.insert(b);
+				candidates.push_back(b);
 			}
 		}
 		else if(a == 2) {
@@ -33,9 +33,7 @@ int main() {
 			}
 		}
 		else if(a == 3) {
-			for(auto i = candidates.begin(); i != candidates.end(); i++) {
-				int k = *i;
-				
+			for(int k : candidates) {
 				if(!isFriend[k] && inRoom[k]) {
 					isFriend[k] = 1;
 					cnt++;
@@ -46,9 +44,7 @@ int main() {
 		else {
 			cout << cnt << "\n";
 		}
-		
 	}
-	
 	
 	return 0;
 }
